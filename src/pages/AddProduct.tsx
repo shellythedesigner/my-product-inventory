@@ -1,53 +1,54 @@
-// import * as Yup from "yup";
-
-// validationSchema: Yup.object({
-//   name: Yup.string()
-//     .matches(
-//       /^[a-zA-Z0-9 ]+$/,
-//       "Name must be letters, dashes, numbers, or spaces"
-//     )
-//     .required("Required"),
-//   email: Yup.string().email("Invalid Email Address").required("Required"),
-//   gitHubUsername: Yup.string()
-//     .min(5, "Must be at least 5 characters")
-//     .max(15, "Must be at most 15 characters")
-//     .required(),
-//   blogUrl: Yup.string().url("Must be a valid URL"),
-// }),
-// onSubmit: (values) => {
-//   // Here, you handle what you want to do with the form data when the form is submitted.
-//   // For instance, sending the data to a server.
-//   console.log(values);
-// },
-// });
-
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const AppProduct = () => {
-  // Pass the useFormik() hook initial form values and a submit function that will
-  // be called when the form is submitted
   const formik = useFormik({
     initialValues: {
-      image: "",
+      file: "",
       name: "",
       brief: "",
       price: "",
       decription: "",
     },
+    validationSchema: Yup.object({
+      image: Yup.mixed().required("Product image is required"),
+      name: Yup.string().required("Product name is required"),
+      brief: Yup.string()
+        .min(1, "Please provide at least 10 characters")
+        .max(20, "Maximum is 50 characters"),
+      price: Yup.string()
+        .matches(/[0-9]/, "Price must be numbers")
+        .required("Price is required"),
+      decription: Yup.string().min(10, "Please provide at least 10 characters"),
+      file: Yup.string().required("Product name is required"),
+    }),
+
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      console.log(values);
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="image">Product Image</label>
+      <label htmlFor="file">Product Image</label>
       <input
-        id="image"
-        name="image"
-        type="image"
-        onChange={formik.handleChange}
-        value={formik.values.image}
+        id="file"
+        name="file"
+        type="file"
+        // onChange={(e) => formik.setFieldValue("image"), e.target.files[0])}
+        // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        //   formik.setFieldValue("image", e.target.files[0])
+        // }
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          if (e.target.files && e.target.files.length > 0) {
+            formik.setFieldValue("file", e.target.files[0]);
+          }
+        }}
+        // value={formik.values.file}
       />
+      {formik.touched.file && formik.errors.file ? (
+        <div>{formik.errors.file}</div>
+      ) : null}
 
       <label htmlFor="name">Product Name</label>
       <input
@@ -57,6 +58,9 @@ const AppProduct = () => {
         onChange={formik.handleChange}
         value={formik.values.name}
       />
+      {formik.touched.name && formik.errors.name ? (
+        <div>{formik.errors.name}</div>
+      ) : null}
 
       <label htmlFor="brief">Short Brief</label>
       <input
@@ -66,6 +70,9 @@ const AppProduct = () => {
         onChange={formik.handleChange}
         value={formik.values.brief}
       />
+      {formik.touched.brief && formik.errors.brief ? (
+        <div>{formik.errors.brief}</div>
+      ) : null}
 
       <label htmlFor="price">Price</label>
       <input
@@ -75,6 +82,9 @@ const AppProduct = () => {
         onChange={formik.handleChange}
         value={formik.values.price}
       />
+      {formik.touched.price && formik.errors.price ? (
+        <div>{formik.errors.price}</div>
+      ) : null}
 
       <label htmlFor="decription">Product Decription</label>
       <input
@@ -84,6 +94,9 @@ const AppProduct = () => {
         onChange={formik.handleChange}
         value={formik.values.decription}
       />
+      {formik.touched.decription && formik.errors.decription ? (
+        <div>{formik.errors.decription}</div>
+      ) : null}
 
       <button type="submit">Submit</button>
     </form>
