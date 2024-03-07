@@ -3,3 +3,7 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+
+// A form to add a new product.
+// Use Formik for the form, Yup for validation,
+// and Zustand for managing global state.

@@ -3,3 +3,4 @@ const Favourites = () => {
 };
 
 export default Favourites;
+// This page will list the the user added favourite product cards.
