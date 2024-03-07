@@ -1,21 +1,21 @@
 interface ProductCardProps {
   imageUrl: string;
   productName: string;
-  description: string;
+  brief: string;
   price: string;
 }
 
 const ProductCard = ({
   imageUrl,
   productName,
-  description,
+  brief,
   price,
 }: ProductCardProps) => {
   return (
     <div>
       <img src={imageUrl}></img>
       <h2>{productName}</h2>
-      <p>{description}</p>
+      <p>{brief}</p>
       <p>{price}</p>
       <button>Favourite</button>
       <button>More Information</button>

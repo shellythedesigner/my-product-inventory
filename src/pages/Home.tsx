@@ -7,7 +7,7 @@ const Home = () => {
         imageUrl="https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg"
         productName="Canada Air"
         price="99999"
-        description="A breath of fresh, 100% Nature."
+        brief="A breath of fresh, 100% Nature."
       />
     </>
   );
