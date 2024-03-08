@@ -1,0 +1,24 @@
+{
+  "products": {
+    "data": {
+      "items": [
+      {
+        "id": "1",
+        "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
+        "productName": "Canada Air",
+        "price": "99999",
+        "brief": "A breath of fresh, 100% Nature.",
+        "description": "The Canada Air, a breath of fresh, mmerse yourself in the essence of the Great White North with our premium-quality air. Buy it now! Why wait?"
+      },
+      {
+        "id": "2",
+        "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
+        "productName": "Canada Air",
+        "price": "99999",
+        "brief": "A breath of fresh, 100% Nature.",
+        "description": "The Canada Air, a breath of fresh, mmerse yourself in the essence of the Great White North with our premium-quality air. Buy it now! Why wait?"
+      }
+    ]
+  }
+  }
+  }

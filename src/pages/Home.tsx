@@ -1,14 +1,26 @@
 import ProductCard from "../components/ProductCard";
+import products from "../data/products.json";
 
 const Home = () => {
+  const productsArray = products.products.data.items;
   return (
     <>
-      <ProductCard
+      {productsArray.map((product) => (
+        <ProductCard
+          // key={products.id}
+          imageUrl={product.imageUrl}
+          productName={product.productName}
+          price={product.price}
+          brief={product.brief}
+        />
+
+        /* <ProductCard
         imageUrl="https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg"
         productName="Canada Air"
         price="99999"
         brief="A breath of fresh, 100% Nature."
-      />
+      /> */
+      ))}
     </>
   );
 };
