@@ -1,27 +1,34 @@
-// import { create } from "zustand";
+import { create } from "zustand";
+import productsData from "../data/products.json";
 
-// interface Product {
-//   file: string;
-//   name: string;
-//   brief: string;
-//   price: number;
-//   decription: string;
-// }
+interface Product {
+  id: string;
+  file: string;
+  name: string;
+  brief: string;
+  price: number;
+  description: string;
+}
 
-// export const addProductStore = create<ProductStore>((set) => ({
-//   product: "",
-//   addProductStore: (text: string) => set({ product: text }),
-// }));
+interface ProductStore {
+  product: Product[];
+  setProduct: (product: Product) => void;
+}
 
-// interface ProductStore {
-//   product: Product[];
-//   addProduct: (product: Product ) => void;
-// }
+const initialProducts = productsData.products.data.items.map((item) => ({
+  id: item.id,
+  file: item.imageUrl,
+  name: item.productName,
+  brief: item.brief,
+  price: parseFloat(item.price),
+  description: item.description,
+}));
 
-// export const addProductStore = create<ProductStore>((set) => ({
-//   product: [],
-//   addProduct: (product: Product ) => set((state)=>({product: [...state.product, product]})),
-// }));
+export const useProductStore = create<ProductStore>((set) => ({
+  product: initialProducts,
+  setProduct: (product) =>
+    set((state) => ({ product: [...state.product, product] })),
+}));
 
 // interface MarkdownStore {
 //   markdown: string;

@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
+import { useProductStore } from "../store/useProductStore";
+
 const AppProduct = () => {
   const formik = useFormik({
     initialValues: {
@@ -32,8 +34,13 @@ const AppProduct = () => {
     }),
 
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
-      console.log(values);
+      const newProduct = {
+        id: Date.now().toString(),
+        ...values,
+        price: Number(values.price),
+      };
+      useProductStore.getState().setProduct(newProduct);
+      formik.resetForm();
     },
   });
   return (

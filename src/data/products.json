@@ -6,7 +6,7 @@
           "id": "1",
           "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Canada Snowy Scent",
-          "price": "CA$ 99999",
+          "price": "99999",
           "brief": "A breath of fresh, 100% Nature.",
           "description": "The Canada Snowy Scent, a breath of fresh, immerse yourself in the essence of the Great White North with our premium-quality air. Buy it now! Why wait?"
         },
@@ -14,7 +14,7 @@
           "id": "2",
           "imageUrl": "https://www.example.com/image2.jpg",
           "productName": "Mountain Breeze",
-          "price": "CA$ 79999",
+          "price": "79999",
           "brief": "Pure air from the mountain tops.",
           "description": "Experience the purity of the Mountain Breeze. Sourced from the highest peaks, our air is guaranteed to rejuvenate your senses. Order now!"
         },
@@ -22,7 +22,7 @@
           "id": "3",
           "imageUrl": "https://www.example.com/image3.jpg",
           "productName": "Ocean Mist",
-          "price": "CA$ 89999",
+          "price": "89999",
           "brief": "Refreshing sea air for your home.",
           "description": "Bring the invigorating scent of the ocean into your living space with our Ocean Mist air. Feel revitalized with every breath. Order yours today!"
         },
@@ -30,7 +30,7 @@
           "id": "4",
           "imageUrl": "https://www.example.com/image4.jpg",
           "productName": "Forest Essence",
-          "price": "CA$ 74999",
+          "price": "74999",
           "brief": "Capture the essence of the forest.",
           "description": "Breathe in the pure essence of the forest with our Forest Essence air. Immerse yourself in the tranquility of nature. Get yours now!"
         },
@@ -38,7 +38,7 @@
           "id": "5",
           "imageUrl": "https://www.example.com/image5.jpg",
           "productName": "Tropical Paradise",
-          "price": "CA$ 89999",
+          "price": "89999",
           "brief": "Escape to a tropical paradise.",
           "description": "Transport yourself to a tropical paradise with our Tropical Paradise air. Feel the warmth and freshness of the tropics. Order today!"
         },
@@ -46,7 +46,7 @@
           "id": "6",
           "imageUrl": "https://www.example.com/image6.jpg",
           "productName": "Alpine Bliss",
-          "price": "CA$ 84999",
+          "price": "84999",
           "brief": "Pure air from the alpine slopes.",
           "description": "Indulge in the purity of Alpine Bliss air. Sourced from pristine alpine slopes, it will invigorate your senses and uplift your mood. Order now!"
         },
@@ -54,7 +54,7 @@
           "id": "7",
           "imageUrl": "https://www.example.com/image7.jpg",
           "productName": "Sunset Serenity",
-          "price": "CA$ 79999",
+          "price": "79999",
           "brief": "Experience the tranquility of a sunset.",
           "description": "Unwind with the calming scent of Sunset Serenity air. Let the peaceful ambiance of a sunset fill your home. Order yours today!"
         },
@@ -62,7 +62,7 @@
           "id": "8",
           "imageUrl": "https://www.example.com/image8.jpg",
           "productName": "Morning Dew",
-          "price": "CA$ 89999",
+          "price": "89999",
           "brief": "Start your day with freshness.",
           "description": "Begin your day on a refreshing note with Morning Dew air. Awaken your senses with the crispness of morning dew. Order now!"
         },
@@ -70,7 +70,7 @@
           "id": "9",
           "imageUrl": "https://www.example.com/image9.jpg",
           "productName": "Garden Oasis",
-          "price": "CA$ 84999",
+          "price": "84999",
           "brief": "Surround yourself with garden freshness.",
           "description": "Transform your home into a Garden Oasis with our fragrant air. Enjoy the rejuvenating aroma of a blooming garden. Order today!"
         },
@@ -78,7 +78,7 @@
           "id": "10",
           "imageUrl": "https://www.example.com/image10.jpg",
           "productName": "Rainforest Renewal",
-          "price": "CA$ 89999",
+          "price": "89999",
           "brief": "Revitalize your senses with rainforest air.",
           "description": "Refresh and rejuvenate your senses with Rainforest Renewal air. Immerse yourself in the revitalizing essence of the rainforest. Order now!"
         }
