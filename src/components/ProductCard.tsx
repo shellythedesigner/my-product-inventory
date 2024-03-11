@@ -8,6 +8,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 
+import { useFavoriteStore } from "../store/useFavouriteStore";
+
 interface Product {
   id: string;
   name: string;
@@ -22,12 +24,16 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const isFavorite = useFavoriteStore((state) =>
+    state.favorites.some((fav) => fav.id === product.id)
+  );
+
   return (
     <Box>
       <Card
         sx={{
           margin: "20px",
-          //   width: "280px",
+          width: "280px",
           //   margin: "20px",
         }}
       >
@@ -48,8 +54,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </Box>
         </CardContent>
         <CardActions>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+          <IconButton
+            aria-label="add to favorites"
+            onClick={() => {
+              if (isFavorite) {
+                useFavoriteStore.getState().removeFromFavorites(product);
+              } else {
+                useFavoriteStore.getState().setToFavorites(product);
+              }
+            }}
+          >
+            <FavoriteIcon sx={{ color: isFavorite ? "#ff3c3c" : "#c1c1c1" }} />
           </IconButton>
           <Button size="small" sx={{ color: "#027a9c" }}>
             More Information
