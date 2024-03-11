@@ -12,7 +12,7 @@ const ProductDetail = () => {
         marginTop: "50px",
       }}
     >
-      <Grid container spacing={10} maxWidth="1200px">
+      <Grid container spacing={10} maxWidth="85%">
         <Grid item xs={12} md={6}>
           <img
             src="https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg"
@@ -49,7 +49,14 @@ const ProductDetail = () => {
             the Great White North with our premium-quality air. Buy it now! Why
             wait?
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 2,
+              mt: "20px",
+            }}
+          >
             <Button
               variant="contained"
               color="primary"

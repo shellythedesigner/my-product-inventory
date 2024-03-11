@@ -12,13 +12,20 @@ const Home = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        marginTop: "30px",
+        mt: "30px",
       }}
     >
       <Typography variant="h4" component="h2" gutterBottom>
         Product List
       </Typography>
-      <Grid container justifyContent="center" maxWidth="1200px" margin="auto">
+
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        maxWidth="85%"
+        margin="auto"
+      >
         {productsArray.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <ProductCard

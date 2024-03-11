@@ -17,6 +17,7 @@ interface ProductCardProps {
   brief: string;
   price: string;
 }
+
 export default function ProductCard({
   imageUrl,
   productName,
@@ -36,12 +37,12 @@ export default function ProductCard({
           <Typography gutterBottom variant="h5" component="div">
             {productName}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="#a7a7a7">
             {brief}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {price}
-          </Typography>
+          <Box mt={2}>
+            <Typography variant="body1">{price}</Typography>
+          </Box>
         </CardContent>
         <CardActions>
           <IconButton aria-label="add to favorites">
