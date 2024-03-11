@@ -1,12 +1,12 @@
-import { create } from "zustand";
+// import { create } from "zustand";
 
-interface Product {
-  file: string;
-  name: string;
-  brief: string;
-  price: number;
-  decription: string;
-}
+// interface Product {
+//   file: string;
+//   name: string;
+//   brief: string;
+//   price: number;
+//   decription: string;
+// }
 
 // export const addProductStore = create<ProductStore>((set) => ({
 //   product: "",
