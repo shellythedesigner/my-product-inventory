@@ -44,12 +44,14 @@ const AppProduct = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
+          marginTop: "30px",
         }}
       >
         <Typography
           variant="h4"
           component="h2"
           gutterBottom
+          align="center"
           sx={{ marginBottom: "20px" }}
         >
           Add Product
@@ -134,7 +136,15 @@ const AppProduct = () => {
           sx={{ marginBottom: "30px" }}
         />
 
-        <Button variant="contained" color="primary" type="submit">
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          sx={{
+            backgroundColor: "#027a9c",
+            "&:hover": { backgroundColor: "#00566e" },
+          }}
+        >
           Submit
         </Button>
       </Box>

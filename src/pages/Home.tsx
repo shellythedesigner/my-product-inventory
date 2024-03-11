@@ -1,40 +1,38 @@
 import ProductCard from "../components/ProductCard";
 import products from "../data/products.json";
-import Box from "@mui/material/Box";
+import { Box, Grid, Typography } from "@mui/material";
 
 const Home = () => {
   const productsArray = products.products.data.items;
   return (
-    <>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "flex-start",
-          width: "100%",
-        }}
-      >
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        marginTop: "30px",
+      }}
+    >
+      <Typography variant="h4" component="h2" gutterBottom>
+        Product List
+      </Typography>
+      <Grid container justifyContent="center" maxWidth="1200px" margin="auto">
         {productsArray.map((product) => (
-          <ProductCard
-            // key={products.id}
-            imageUrl={product.imageUrl}
-            productName={product.productName}
-            price={product.price}
-            brief={product.brief}
-          />
-
-          /* <ProductCard
-        imageUrl="https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg"
-        productName="Canada Air"
-        price="99999"
-        brief="A breath of fresh, 100% Nature."
-      /> */
+          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+            <ProductCard
+              // key={products.id}
+              imageUrl={product.imageUrl}
+              productName={product.productName}
+              price={product.price}
+              brief={product.brief}
+            />
+          </Grid>
         ))}
-      </Box>
-    </>
+      </Grid>
+    </Box>
   );
 };
 
 export default Home;
-// Display a list of products  (name, description, price, image) card
-// which has a button for adding to favourite and view details.

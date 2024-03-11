@@ -27,11 +27,11 @@ export default function ProductCard({
     <Box>
       <Card
         sx={{
-          width: "300px",
+          width: "280px",
           margin: "20px",
         }}
       >
-        <CardMedia sx={{ height: 200 }} image={imageUrl} title={productName} />
+        <CardMedia sx={{ height: 150 }} image={imageUrl} title={productName} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {productName}
@@ -47,7 +47,9 @@ export default function ProductCard({
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
-          <Button size="small">More Information</Button>
+          <Button size="small" sx={{ color: "#027a9c" }}>
+            More Information
+          </Button>
         </CardActions>
       </Card>
     </Box>
