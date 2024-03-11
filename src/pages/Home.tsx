@@ -1,26 +1,36 @@
 import ProductCard from "../components/ProductCard";
 import products from "../data/products.json";
+import Box from "@mui/material/Box";
 
 const Home = () => {
   const productsArray = products.products.data.items;
   return (
     <>
-      {productsArray.map((product) => (
-        <ProductCard
-          // key={products.id}
-          imageUrl={product.imageUrl}
-          productName={product.productName}
-          price={product.price}
-          brief={product.brief}
-        />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          width: "100%",
+        }}
+      >
+        {productsArray.map((product) => (
+          <ProductCard
+            // key={products.id}
+            imageUrl={product.imageUrl}
+            productName={product.productName}
+            price={product.price}
+            brief={product.brief}
+          />
 
-        /* <ProductCard
+          /* <ProductCard
         imageUrl="https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg"
         productName="Canada Air"
         price="99999"
         brief="A breath of fresh, 100% Nature."
       /> */
-      ))}
+        ))}
+      </Box>
     </>
   );
 };
