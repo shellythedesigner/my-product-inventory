@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "./pages/Home";
+import FakeHome from "./pages/Home2";
 import AddProduct from "./pages/AddProduct";
 import ProductDetail from "./pages/ProductDetail";
 import Favourites from "./pages/Favourites";
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <FakeHome />,
       },
       {
         path: "/AddProduct",
