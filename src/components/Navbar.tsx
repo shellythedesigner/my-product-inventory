@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 
+import products from "../data/products.json";
+
 const Navbar = () => {
+  const firstProductId = products.products.data.items[0].id;
+
   return (
     <AppBar position="static" sx={{ backgroundColor: "#027a9c" }}>
       <Toolbar>
@@ -23,13 +27,15 @@ const Navbar = () => {
           >
             Add Product
           </Button>
+
           <Button
             component={Link}
-            to="/ProductDetail"
+            to={`/ProductDetail/${firstProductId}`}
             sx={{ textDecoration: "none", color: "inherit" }}
           >
             Product Detail
           </Button>
+
           <Button
             component={Link}
             to="/Favourites"

@@ -1,6 +1,15 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
+import products from "../data/products.json";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
+  const { id } = useParams<{ id: string }>();
+  const product = products.products.data.items.find((p) => p.id === id);
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   return (
     <Box
       sx={{
@@ -15,7 +24,7 @@ const ProductDetail = () => {
       <Grid container spacing={10} maxWidth="85%">
         <Grid item xs={12} md={6}>
           <img
-            src="https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg"
+            src={product.imageUrl}
             alt="Product Image"
             style={{ width: "100%", height: "auto" }}
           />
@@ -31,7 +40,7 @@ const ProductDetail = () => {
           }}
         >
           <Typography variant="h4" component="h2" gutterBottom align="center">
-            Canada Snowy Scent
+            {product.productName}
           </Typography>
           <Typography
             variant="body1"
@@ -39,15 +48,13 @@ const ProductDetail = () => {
             align="center"
             sx={{ color: "#a7a7a7" }}
           >
-            A breath of fresh, 100% Nature.
+            {product.brief}
           </Typography>
           <Typography variant="h5" component="h3" gutterBottom align="center">
-            CA$ 99999
+            CA${product.price}
           </Typography>
           <Typography variant="body1" component="p" align="left">
-            The Canada Air, a breath of fresh, mmerse yourself in the essence of
-            the Great White North with our premium-quality air. Buy it now! Why
-            wait?
+            {product.description}
           </Typography>
           <Box
             sx={{
@@ -85,5 +92,6 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
 // This page will list the information of a single product
 // (name, description, price, image).  Each product has options to edit or delete.

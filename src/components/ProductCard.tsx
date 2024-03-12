@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 
 import { useFavoriteStore } from "../store/useFavouriteStore";
+import { Link } from "react-router-dom";
 
 interface Product {
   id: string;
@@ -66,9 +67,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
           >
             <FavoriteIcon sx={{ color: isFavorite ? "#ff3c3c" : "#c1c1c1" }} />
           </IconButton>
-          <Button size="small" sx={{ color: "#027a9c" }}>
-            More Information
-          </Button>
+          <Link to={`/ProductDetail/${product.id}`}>
+            <Button size="small" sx={{ color: "#027a9c" }}>
+              More Information
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Box>

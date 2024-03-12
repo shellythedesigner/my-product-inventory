@@ -7,11 +7,13 @@ import AddProduct from "./pages/AddProduct";
 import ProductDetail from "./pages/ProductDetail";
 import Favourites from "./pages/Favourites";
 import { Layout } from "./components/Layout";
+import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
         element: <AddProduct />,
       },
       {
-        path: "/ProductDetail",
+        path: "/ProductDetail/:id",
         element: <ProductDetail />,
       },
       {
