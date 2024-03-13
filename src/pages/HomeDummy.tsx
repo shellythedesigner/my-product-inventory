@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { getAllProducts } from "../api/productApi";
-import ProductCard2 from "../components/ProductCard2";
+import ProductCard2 from "../components/ProductCardDummy";
 import { ProductType } from "../types/products";
 import { Box, Grid, Typography } from "@mui/material";
 
