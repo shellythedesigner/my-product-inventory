@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { getAllProducts } from "../api/productApi";
-import ProductCard2 from "../components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { ProductType } from "../types/products";
 import { Box, Grid, Typography } from "@mui/material";
 
@@ -46,14 +46,7 @@ const Home = () => {
       >
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-            <ProductCard2
-              image={product.image}
-              title={product.title}
-              description={product.description}
-              price={product.price}
-              rating={product.rating}
-              category={product.category}
-            />
+            <ProductCard product={product} />
           </Grid>
         ))}
       </Grid>

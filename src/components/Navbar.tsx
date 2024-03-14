@@ -22,7 +22,7 @@ const Navbar = () => {
           </Button>
           <Button
             component={Link}
-            to="/AddProductDummy"
+            to="/AddProduct"
             sx={{ textDecoration: "none", color: "inherit" }}
           >
             Add Product

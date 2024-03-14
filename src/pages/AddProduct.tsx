@@ -13,17 +13,17 @@ import { createProduct } from "../api/productApi";
 const AppProduct = () => {
   const formik = useFormik({
     initialValues: {
-      file: "",
-      name: "",
-      brief: "",
+      image: "",
+      title: "",
+      category: "",
       price: "",
       description: "",
     },
     validationSchema: Yup.object({
       // image: Yup.mixed().required("Product image is required"),
-      name: Yup.string().required("Product name is required"),
-      brief: Yup.string()
-        .required("Short brief is required")
+      title: Yup.string().required("Product name is required"),
+      category: Yup.string()
+        .required("category is required")
         .min(1, "Please provide at least 10 characters")
         .max(20, "Maximum is 50 characters"),
       price: Yup.number()
@@ -32,7 +32,7 @@ const AppProduct = () => {
       description: Yup.string()
         .required("Description is required")
         .min(10, "Please provide at least 10 characters"),
-      file: Yup.string().required("File is required"),
+      image: Yup.string(),
     }),
 
     onSubmit: async (values) => {
@@ -84,7 +84,7 @@ const AppProduct = () => {
           align="center"
           sx={{ marginBottom: "20px" }}
         >
-          Add Product Fake
+          Add Product
         </Typography>
 
         <Typography
@@ -96,8 +96,8 @@ const AppProduct = () => {
           Upload Product Image
         </Typography>
         <TextField
-          id="file"
-          name="file"
+          id="image"
+          name="image"
           // label="Product Image"
           variant="outlined"
           fullWidth
@@ -107,34 +107,34 @@ const AppProduct = () => {
               formik.setFieldValue("file", e.target.files[0]);
             }
           }}
-          error={formik.touched.file && Boolean(formik.errors.file)}
-          helperText={formik.touched.file && formik.errors.file}
+          error={formik.touched.image && Boolean(formik.errors.image)}
+          helperText={formik.touched.image && formik.errors.image}
           sx={{ marginBottom: "30px", marginTop: "0px" }}
         />
 
         <TextField
-          id="name"
-          name="name"
+          id="title"
+          name="title"
           label="Product Name"
           variant="outlined"
           fullWidth
           onChange={formik.handleChange}
-          value={formik.values.name}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
+          value={formik.values.title}
+          error={formik.touched.title && Boolean(formik.errors.title)}
+          helperText={formik.touched.title && formik.errors.title}
           sx={{ marginBottom: "30px" }}
         />
 
         <TextField
-          id="brief"
-          name="brief"
-          label="Short Brief"
+          id="category"
+          name="category"
+          label="Category"
           variant="outlined"
           fullWidth
           onChange={formik.handleChange}
-          value={formik.values.brief}
-          error={formik.touched.brief && Boolean(formik.errors.brief)}
-          helperText={formik.touched.brief && formik.errors.brief}
+          value={formik.values.category}
+          error={formik.touched.category && Boolean(formik.errors.category)}
+          helperText={formik.touched.category && formik.errors.category}
           sx={{ marginBottom: "30px" }}
         />
 

@@ -1,15 +1,31 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
-import products from "../data/products.json";
+import { useEffect, useState } from "react";
+import { getProductById } from "../api/productApi";
 import { useParams } from "react-router-dom";
 import { deleteProduct, updateProduct } from "../api/productApi";
+import { ProductType } from "../types/products";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const product = products.products.data.items.find((p) => p.id === id);
+  const [product, setProduct] = useState<ProductType>();
 
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        if (id) {
+          const response = await getProductById(id);
+          console.log(response);
+          setProduct(response);
+        } else {
+          console.error("Product ID is undefined");
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
 
   const handleDelete = async () => {
     try {
@@ -48,7 +64,7 @@ const ProductDetail = () => {
       <Grid container spacing={10} maxWidth="85%">
         <Grid item xs={12} md={6}>
           <img
-            src={product.imageUrl}
+            src={product?.image}
             alt="Product Image"
             style={{ width: "100%", height: "auto" }}
           />
@@ -64,7 +80,7 @@ const ProductDetail = () => {
           }}
         >
           <Typography variant="h4" component="h2" gutterBottom align="center">
-            {product.productName}
+            {product?.title}
           </Typography>
           <Typography
             variant="body1"
@@ -72,13 +88,13 @@ const ProductDetail = () => {
             align="center"
             sx={{ color: "#a7a7a7" }}
           >
-            {product.brief}
+            {product?.category}
           </Typography>
           <Typography variant="h5" component="h3" gutterBottom align="center">
-            CA${product.price}
+            CA${product?.price}
           </Typography>
           <Typography variant="body1" component="p" align="left">
-            {product.description}
+            {product?.description}
           </Typography>
           <Box
             sx={{
