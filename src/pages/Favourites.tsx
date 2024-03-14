@@ -1,4 +1,4 @@
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/ProductCardCopy";
 import { useFavoriteStore } from "../store/useFavouriteStore";
 import { Box, Grid, Typography } from "@mui/material";
 

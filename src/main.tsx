@@ -2,13 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import FakeHome from "./pages/HomeDummy";
-// import AddProduct from "./pages/AddProduct";
+import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Favourites from "./pages/Favourites";
 import { Layout } from "./components/Layout";
 import NotFound from "./components/NotFound";
-import AddProductDummy from "./pages/AddProductDummy";
+import AddProduct from "./pages/AddProduct";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +17,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <FakeHome />,
+        element: <Home />,
       },
       {
-        path: "/AddProductDummy",
-        element: <AddProductDummy />,
+        path: "/AddProduct",
+        element: <AddProduct />,
       },
       {
         path: "/ProductDetail/:id",

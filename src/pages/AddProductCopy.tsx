@@ -5,10 +5,8 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-// import axios from "axios";
 
 import { useProductStore } from "../store/useProductStore";
-import { createProduct } from "../api/productApi";
 
 const AppProduct = () => {
   const formik = useFormik({
@@ -35,7 +33,7 @@ const AppProduct = () => {
       file: Yup.string().required("File is required"),
     }),
 
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       const newProduct = {
         id: Date.now().toString(),
         ...values,
@@ -43,29 +41,8 @@ const AppProduct = () => {
       };
       useProductStore.getState().setProduct(newProduct);
       formik.resetForm();
-
-      try {
-        const response = await createProduct(values);
-        if (response.status === 200) {
-          console.log("Product added successfully", response.data);
-        }
-      } catch (err) {
-        console.error("Failed to add Product", err);
-      }
-      // } finally {
-      //   resetForm({});
-      // }
-
-      // const url = "https://fakestoreapi.com/products";
-      // try {
-      //   const response = await axios.post(url, newProduct);
-      //   console.log(response.data);
-      // } catch (error) {
-      //   console.error("Error submitting product:", error);
-      // }
     },
   });
-
   return (
     <Container maxWidth="sm">
       <Box
@@ -84,7 +61,7 @@ const AppProduct = () => {
           align="center"
           sx={{ marginBottom: "20px" }}
         >
-          Add Product Fake
+          Add Product
         </Typography>
 
         <Typography
@@ -183,7 +160,6 @@ const AppProduct = () => {
 };
 
 export default AppProduct;
-
 // A form to add a new product.
 // Use Formik for the form, Yup for validation,
 // and Zustand for managing global state.
