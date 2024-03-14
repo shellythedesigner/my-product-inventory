@@ -1,6 +1,7 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
 import products from "../data/products.json";
 import { useParams } from "react-router-dom";
+import { deleteProduct, updateProduct } from "../api/productApi";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -9,6 +10,29 @@ const ProductDetail = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
+
+  const handleDelete = async () => {
+    try {
+      const response = await deleteProduct();
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
+  const handleUpdate = async () => {
+    const updatedData = {
+      name: "Hello Product",
+      price: 11111111111,
+    };
+
+    try {
+      const response = await updateProduct("product-id", updatedData);
+      console.log("Product updated successfully:", response.data);
+    } catch (error) {
+      console.error("Error updating product:", error);
+    }
+  };
 
   return (
     <Box
@@ -71,6 +95,7 @@ const ProductDetail = () => {
                 backgroundColor: "#027a9c",
                 "&:hover": { backgroundColor: "#00566e" },
               }}
+              onClick={handleUpdate}
             >
               Edit
             </Button>
@@ -81,6 +106,7 @@ const ProductDetail = () => {
                 backgroundColor: "#027a9c",
                 "&:hover": { backgroundColor: "#00566e" },
               }}
+              onClick={handleDelete}
             >
               Delete
             </Button>
