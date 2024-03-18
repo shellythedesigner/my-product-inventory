@@ -39,7 +39,7 @@ const AppProduct = () => {
         ...values,
         price: Number(values.price),
       };
-      useProductStore.getState().setProduct(newProduct);
+      //useProductStore.getState().setProduct(newProduct);
       formik.resetForm();
     },
   });
