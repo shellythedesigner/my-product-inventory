@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const API_URL = "https://fakestoreapi.com/products";
+
+
 //GET
-export const  getAllProducts = () =>  axios.get("https://fakestoreapi.com/products")
+export const  getAllProducts = () =>  axios.get(API_URL)
 
 // POST
 interface ProductType {
@@ -12,27 +15,27 @@ interface ProductType {
   description: string;
 }
 
-const createUrl = "https://fakestoreapi.com/products";
+// const createUrl = "https://fakestoreapi.com/products";
 export const createProduct = (productData: ProductType) =>
-  axios.post(createUrl, productData);
+  axios.post(API_URL, productData);
 
 
 // PUT / PATCH;
-const patchUrl = "https://fakestoreapi.com/products/7";
-export const updateProduct = (id: string, updatedData: Partial<ProductType>) =>
-  axios.patch(`${patchUrl}/products/${id}`, updatedData);
+
+export const updateProduct = (id: string, updatedData: { name: string; price: number; }) =>
+  axios.patch(`${API_URL}/${id}`, updatedData);
 
 
 
 // DELETE;
-const deteleUrl = "https://fakestoreapi.com/products/6";
-export const deleteProduct = () =>
-  axios.delete(deteleUrl);
 
-const getProductUrl = "https://fakestoreapi.com/products/"
-  export const getProductById = async (id: string) => {
+export const deleteProduct = (id: string) =>
+  axios.delete(`${API_URL}/${id}`);
+
+
+export const getProductById = async (id: string) => {
     try {
-       const response = await axios.get(`${getProductUrl}${id}`);
+       const response = await axios.get(`${API_URL}/${id}`);
        return response.data;
     } catch (error) {
        console.error('Error fetching product:', error);

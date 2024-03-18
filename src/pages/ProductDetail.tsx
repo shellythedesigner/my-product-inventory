@@ -1,13 +1,15 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getProductById } from "../api/productApi";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { deleteProduct, updateProduct } from "../api/productApi";
 import { ProductType } from "../types/products";
 
 const ProductDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id = "" } = useParams();
   const [product, setProduct] = useState<ProductType>();
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -29,10 +31,15 @@ const ProductDetail = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await deleteProduct();
-      console.log(response.data);
+      setIsLoading(true);
+
+      const response = await deleteProduct(id);
+      console.log("🚀 ~ handleDelete ~ response:", response);
+      navigate("/");
     } catch (error) {
       console.error("Error deleting product:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -43,7 +50,7 @@ const ProductDetail = () => {
     };
 
     try {
-      const response = await updateProduct("product-id", updatedData);
+      const response = await updateProduct(id, updatedData);
       console.log("Product updated successfully:", response.data);
     } catch (error) {
       console.error("Error updating product:", error);
@@ -124,7 +131,7 @@ const ProductDetail = () => {
               }}
               onClick={handleDelete}
             >
-              Delete
+              {isLoading ? <p>Deleting...</p> : <p>Delete Product</p>}
             </Button>
           </Box>
         </Grid>

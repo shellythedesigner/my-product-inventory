@@ -25,23 +25,6 @@ interface ProductCardProps {
   product: Product;
 }
 
-// interface ProductCardProps {
-//   image: string;
-//   title: string;
-//   description: string;
-//   price: number;
-//   category: string;
-//   rating: RatingType;
-// }
-// export default function ProductCard({
-//   image,
-//   title,
-//   description,
-//   category,
-//   price,
-//   rating,
-// }: ProductCardProps) {
-
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Card sx={{ maxWidth: 250 }}>
