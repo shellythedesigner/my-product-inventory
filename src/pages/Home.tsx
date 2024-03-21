@@ -14,7 +14,8 @@ const Home = () => {
     const fetchProducts = async () => {
       try {
         const response = await getAllProducts();
-        setProducts(response.data);
+        // console.log(response.data.data.airModels);
+        setProducts(response.data.data.airModels);
         console.log("Fetching Data");
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -28,8 +29,8 @@ const Home = () => {
       sx={{
         width: "100%",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: "left",
+        alignItems: "left",
         flexDirection: "column",
         mt: "30px",
       }}
@@ -39,13 +40,13 @@ const Home = () => {
       </Typography>
       <Grid
         container
-        justifyContent="center"
-        alignItems="center"
+        justifyContent="left"
+        alignItems="left"
         maxWidth="85%"
         margin="auto"
       >
         {products.map((product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
             <ProductCard product={product} />
           </Grid>
         ))}

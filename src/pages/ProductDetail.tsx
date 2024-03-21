@@ -16,8 +16,8 @@ const ProductDetail = () => {
       try {
         if (id) {
           const response = await getProductById(id);
-          console.log(response);
-          setProduct(response);
+          // console.log(response);
+          setProduct(response.data);
         } else {
           console.error("Product ID is undefined");
         }
@@ -71,7 +71,7 @@ const ProductDetail = () => {
       <Grid container spacing={10} maxWidth="85%">
         <Grid item xs={12} md={6}>
           <img
-            src={product?.image}
+            src={product?.imageUrl}
             alt="Product Image"
             style={{ width: "100%", height: "auto" }}
           />
@@ -87,7 +87,7 @@ const ProductDetail = () => {
           }}
         >
           <Typography variant="h4" component="h2" gutterBottom align="center">
-            {product?.title}
+            {product?.productName}
           </Typography>
           <Typography
             variant="body1"
@@ -95,7 +95,7 @@ const ProductDetail = () => {
             align="center"
             sx={{ color: "#a7a7a7" }}
           >
-            {product?.category}
+            {product?.brief}
           </Typography>
           <Typography variant="h5" component="h3" gutterBottom align="center">
             CA${product?.price}
@@ -109,6 +109,7 @@ const ProductDetail = () => {
               justifyContent: "center",
               gap: 2,
               mt: "20px",
+              height: "35px",
             }}
           >
             <Button

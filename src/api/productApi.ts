@@ -1,16 +1,17 @@
 import axios from "axios";
 
-const API_URL = "https://fakestoreapi.com/products";
+const API_URL = "http://localhost:8000/product";
 
+// http://localhost:5173/
 
 //GET
 export const  getAllProducts = () =>  axios.get(API_URL)
 
 // POST
 interface ProductType {
-  image: string;
-  title: string;
-  category: string;
+  imageUrl: string;
+  productName: string;
+  brief: string;
   price: number;
   description: string;
 }

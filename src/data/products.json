@@ -12,7 +12,7 @@
         },
         {
           "id": "2",
-          "imageUrl": "https://www.example.com/image2.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Mountain Breeze",
           "price": "79999",
           "brief": "Pure air from the mountain tops.",
@@ -20,7 +20,7 @@
         },
         {
           "id": "3",
-          "imageUrl": "https://www.example.com/image3.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Ocean Mist",
           "price": "89999",
           "brief": "Refreshing sea air for your home.",
@@ -28,7 +28,7 @@
         },
         {
           "id": "4",
-          "imageUrl": "https://www.example.com/image4.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Forest Essence",
           "price": "74999",
           "brief": "Capture the essence of the forest.",
@@ -36,7 +36,7 @@
         },
         {
           "id": "5",
-          "imageUrl": "https://www.example.com/image5.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Tropical Paradise",
           "price": "89999",
           "brief": "Escape to a tropical paradise.",
@@ -44,7 +44,7 @@
         },
         {
           "id": "6",
-          "imageUrl": "https://www.example.com/image6.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Alpine Bliss",
           "price": "84999",
           "brief": "Pure air from the alpine slopes.",
@@ -52,7 +52,7 @@
         },
         {
           "id": "7",
-          "imageUrl": "https://www.example.com/image7.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Sunset Serenity",
           "price": "79999",
           "brief": "Experience the tranquility of a sunset.",
@@ -60,7 +60,7 @@
         },
         {
           "id": "8",
-          "imageUrl": "https://www.example.com/image8.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Morning Dew",
           "price": "89999",
           "brief": "Start your day with freshness.",
@@ -68,7 +68,7 @@
         },
         {
           "id": "9",
-          "imageUrl": "https://www.example.com/image9.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Garden Oasis",
           "price": "84999",
           "brief": "Surround yourself with garden freshness.",
@@ -76,7 +76,7 @@
         },
         {
           "id": "10",
-          "imageUrl": "https://www.example.com/image10.jpg",
+          "imageUrl": "https://www.cookmuseum.org/wp-content/uploads/2020/09/air-image-cropped.jpg",
           "productName": "Rainforest Renewal",
           "price": "89999",
           "brief": "Revitalize your senses with rainforest air.",

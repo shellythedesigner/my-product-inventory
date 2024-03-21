@@ -1,4 +1,4 @@
-import ProductCard from "../components/ProductCardCopy";
+import ProductCard from "../components/ProductCard";
 import { useFavoriteStore } from "../store/useFavouriteStore";
 import { Box, Grid, Typography } from "@mui/material";
 
@@ -29,7 +29,7 @@ const Favourites = () => {
         spacing={2}
       >
         {favorites.map((product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
             <ProductCard product={product} />
           </Grid>
         ))}

@@ -1,18 +1,19 @@
 import { create } from "zustand";
 // import productsData from "../data/products.json";
+import { ProductType } from "../types/products";
 
-interface Product {
-  id: string;
-  image: string;
-  title: string;
-  category: string;
-  price: number;
-  description: string;
-}
+// interface Product {
+//   id: string;
+//   image: string;
+//   title: string;
+//   category: string;
+//   price: number;
+//   description: string;
+// }
 
 interface ProductStore {
-  product: Product[];
-  setProduct: (product: Product) => void;
+  product: ProductType[];
+  setProduct: (product: ProductType) => void;
 }
 
 // const initialProducts = productsData.products.data.items.map((item) => ({

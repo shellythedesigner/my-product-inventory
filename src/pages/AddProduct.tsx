@@ -7,23 +7,23 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 // import axios from "axios";
 
-import { useProductStore } from "../store/useProductStore";
+// import { useProductStore } from "../store/useProductStore";
 import { createProduct } from "../api/productApi";
 
 const AppProduct = () => {
   const formik = useFormik({
     initialValues: {
-      image: "",
-      title: "",
-      category: "",
-      price: "",
+      imageUrl: "",
+      productName: "",
+      brief: "",
+      price: 0,
       description: "",
     },
     validationSchema: Yup.object({
       // image: Yup.mixed().required("Product image is required"),
-      title: Yup.string().required("Product name is required"),
-      category: Yup.string()
-        .required("category is required")
+      productName: Yup.string().required("Product name is required"),
+      brief: Yup.string()
+        .required("Summary is required")
         .min(1, "Please provide at least 10 characters")
         .max(20, "Maximum is 50 characters"),
       price: Yup.number()
@@ -32,29 +32,27 @@ const AppProduct = () => {
       description: Yup.string()
         .required("Description is required")
         .min(10, "Please provide at least 10 characters"),
-      image: Yup.string(),
+      imageUrl: Yup.string(),
     }),
 
     onSubmit: async (values) => {
-      const newProduct = {
-        id: Date.now().toString(),
-        ...values,
-        price: Number(values.price),
-      };
-      useProductStore.getState().setProduct(newProduct);
-      formik.resetForm();
+      // const newProduct = {
+      //   id: Date.now().toString(),
+      //   ...values,
+      //   price: Number(values.price),
+      // };
+      //formik.resetForm();
 
       try {
-        const response = await createProduct(newProduct);
+        const response = await createProduct(values);
         if (response.status === 200) {
           console.log("Product added successfully", response.data);
         }
       } catch (err) {
         console.error("Failed to add Product", err);
+      } finally {
+        formik.resetForm();
       }
-      // } finally {
-      //   resetForm({});
-      // }
 
       // const url = "https://fakestoreapi.com/products";
       // try {
@@ -96,45 +94,47 @@ const AppProduct = () => {
           Upload Product Image
         </Typography>
         <TextField
-          id="image"
-          name="image"
+          id="imageUrl"
+          name="imageUrl"
           // label="Product Image"
           variant="outlined"
           fullWidth
           type="file"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            if (e.target.files && e.target.files.length > 0) {
-              formik.setFieldValue("file", e.target.files[0]);
-            }
-          }}
-          error={formik.touched.image && Boolean(formik.errors.image)}
-          helperText={formik.touched.image && formik.errors.image}
+          // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          //   if (e.target.files && e.target.files.length > 0) {
+          //     formik.setFieldValue("file", e.target.files[0]);
+          //   }
+          // }}
+          error={formik.touched.imageUrl && Boolean(formik.errors.imageUrl)}
+          helperText={formik.touched.imageUrl && formik.errors.imageUrl}
           sx={{ marginBottom: "30px", marginTop: "0px" }}
         />
 
         <TextField
-          id="title"
-          name="title"
+          id="productName"
+          name="productName"
           label="Product Name"
           variant="outlined"
           fullWidth
           onChange={formik.handleChange}
-          value={formik.values.title}
-          error={formik.touched.title && Boolean(formik.errors.title)}
-          helperText={formik.touched.title && formik.errors.title}
+          value={formik.values.productName}
+          error={
+            formik.touched.productName && Boolean(formik.errors.productName)
+          }
+          helperText={formik.touched.productName && formik.errors.productName}
           sx={{ marginBottom: "30px" }}
         />
 
         <TextField
-          id="category"
-          name="category"
-          label="Category"
+          id="brief"
+          name="brief"
+          label="brief"
           variant="outlined"
           fullWidth
           onChange={formik.handleChange}
-          value={formik.values.category}
-          error={formik.touched.category && Boolean(formik.errors.category)}
-          helperText={formik.touched.category && formik.errors.category}
+          value={formik.values.brief}
+          error={formik.touched.brief && Boolean(formik.errors.brief)}
+          helperText={formik.touched.brief && formik.errors.brief}
           sx={{ marginBottom: "30px" }}
         />
 

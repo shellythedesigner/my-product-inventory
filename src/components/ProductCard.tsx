@@ -6,56 +6,55 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
-// import Box from "@mui/material/Box";
+import Box from "@mui/material/Box";
 
-// import { useFavoriteStore } from "../store/useFavouriteStore";
+import { useFavoriteStore } from "../store/useFavouriteStore";
 import { Link } from "react-router-dom";
-// import { RatingType } from "../types/products";
-
-interface Product {
-  id: string;
-  title: string;
-  category: string;
-  price: number;
-  description: string;
-  image: string;
-}
+import { ProductType } from "../types/products";
 
 interface ProductCardProps {
-  product: Product;
+  product: ProductType;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const isFavorite = useFavoriteStore((state) =>
+    state.favorites.some((fav) => fav._id === product._id)
+  );
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card sx={{ margin: "20px", width: "280px" }}>
       <CardMedia
-        sx={{ height: 100 }}
-        image={product.image}
-        title={product.title}
+        sx={{ height: 150 }}
+        image={product.imageUrl}
+        title={product.productName}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {product.title}
+          {product.productName}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {product.description}
+        <Typography variant="body2" color="#a7a7a7">
+          {product.brief}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Price: {product.price}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Category: {product.category}
-        </Typography>
-        {/* <Typography variant="body2" color="text.secondary">
-          Ratings: {product.rating.count} {product.rating.rate}
-        </Typography> */}
+        <Box mt={2}>
+          <Typography variant="body1">CAD {product.price}</Typography>
+        </Box>
       </CardContent>
       <CardActions>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => {
+            if (isFavorite) {
+              useFavoriteStore.getState().removeFromFavorites(product);
+            } else {
+              useFavoriteStore.getState().setToFavorites(product);
+            }
+          }}
+        >
+          <FavoriteIcon sx={{ color: isFavorite ? "#ff3c3c" : "#c1c1c1" }} />
         </IconButton>
-        <Link to={`/ProductDetail/${product.id}`}>
-          <Button size="small">Learn More</Button>
+        <Link to={`/ProductDetail/${product._id}`}>
+          <Button size="small" sx={{ color: "#027a9c" }}>
+            Learn More
+          </Button>
         </Link>
       </CardActions>
     </Card>

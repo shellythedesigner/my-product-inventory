@@ -1,17 +1,17 @@
 export interface ProductType {
-  id: string;
-  title: string;
+  _id?: string;
+  productName: string;
   price: number;
   description: string;
-  category: string;
-  image: string;
-  rating: RatingType;
+  brief: string;
+  imageUrl: string;
 }
 
-export interface RatingType {
-  rate: number;
-  count: number;
-}
+// export interface RatingType {
+//   rate: number;
+//   count: number;
+// }
+
 
 
 // {
