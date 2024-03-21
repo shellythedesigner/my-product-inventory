@@ -44,6 +44,7 @@ const AppProduct = () => {
       //formik.resetForm();
 
       try {
+        console.log(values);
         const response = await createProduct(values);
         if (response.status === 200) {
           console.log("Product added successfully", response.data);
@@ -51,7 +52,7 @@ const AppProduct = () => {
       } catch (err) {
         console.error("Failed to add Product", err);
       } finally {
-        formik.resetForm();
+        //formik.resetForm();
       }
 
       // const url = "https://fakestoreapi.com/products";
@@ -99,7 +100,9 @@ const AppProduct = () => {
           // label="Product Image"
           variant="outlined"
           fullWidth
-          type="file"
+          type="url"
+          value={formik.values.imageUrl}
+          onChange={formik.handleChange}
           // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           //   if (e.target.files && e.target.files.length > 0) {
           //     formik.setFieldValue("file", e.target.files[0]);
