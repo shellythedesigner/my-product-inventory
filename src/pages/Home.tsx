@@ -21,6 +21,8 @@ const Home = () => {
         console.error("Error fetching products:", err);
       }
     };
+    const productUrl = import.meta.env.REACT_API_URL;
+    console.log(productUrl);
     fetchProducts();
   }, []);
 

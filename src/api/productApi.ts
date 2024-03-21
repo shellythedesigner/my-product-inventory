@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const API_URL = "http://localhost:8000/product";
-const API_URL = process.env.REACT_APP_API_URL || "https://product-backend-tksj.onrender.com";
+const API_URL = import.meta.env.REACT_APP_API_URL;
 
 
 // http://localhost:5173/
